@@ -1,0 +1,10 @@
+name: 'Github Action Template'
+description: 'simple typescript template for building GitHub Actions'
+author: 'notiz.dev'
+inputs:
+  my_input:
+    description: 'input description here'
+    default: 'World'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

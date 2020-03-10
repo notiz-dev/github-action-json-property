@@ -1,0 +1,26 @@
+name: "test"
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - master
+      - 'releases/*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: install and build   
+      run: |
+        npm install
+        npm run build
+        
+    - name: run action
+      id: run_action
+      uses: ./
+      with: 
+        my_input: 'World'
+
+    - name: log action output
+      run: echo ${{steps.run_action.outputs.my_output}}     

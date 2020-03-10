@@ -1,0 +1,35 @@
+{
+  "name": "github-action-template",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TypeScript template action",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "pack": "ncc build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notiz-dev/github-action-template"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup",
+    "typescript",
+    "GitHub"
+  ],
+  "author": "notiz.dev",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.12",
+    "@zeit/ncc": "^0.20.5",
+    "prettier": "^1.19.1",
+    "typescript": "3.8.3"
+  }
+}
