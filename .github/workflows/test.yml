@@ -26,4 +26,4 @@ jobs:
         path: 'package.json'
         prop_path: 'scripts.format'
 
-     - run: echo ${{steps.get_json_property.outputs.prop}}     
+    - run: echo ${{steps.get_json_property.outputs.prop}}     
