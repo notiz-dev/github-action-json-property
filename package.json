@@ -1,8 +1,8 @@
 {
-  "name": "github-action-template",
+  "name": "get-json-property",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "Simple GitHub Action to read a specified property from a JSON file.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

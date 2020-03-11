@@ -16,11 +16,12 @@ jobs:
         npm install
         npm run build
         
-    - name: run action
-      id: run_action
+    - name: get json property
+      id: get_json_property
       uses: ./
       with: 
-        my_input: 'World'
+        path: 'package.json'
+        prop_path: 'scripts.format'
 
     - name: log action output
-      run: echo ${{steps.run_action.outputs.my_output}}     
+      run: echo ${{steps.get_json_property.outputs.prop}}     

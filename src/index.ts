@@ -1,12 +1,30 @@
 import * as core from '@actions/core';
+import fs from 'fs';
+import util from 'util';
+const readFileAsync = util.promisify(fs.readFile);
 
-function run() {
-  const name: string = core.getInput('my_input');
-  if (name) {
-    core.debug(`Hello ${name}!`);
-    return core.setOutput('my_output', `Hello ${name}!`);
+function getNestedObject(nestedObj: any, pathArr: string[]) {
+  return pathArr.reduce(
+    (obj, key) => (obj && obj[key] !== 'undefined' ? obj[key] : undefined),
+    nestedObj
+  );
+}
+
+async function run() {
+  const path: string = core.getInput('path');
+  const prop: string[] = core.getInput('prop_path').split('.');
+  try {
+    const buffer = await readFileAsync(path);
+    const json = JSON.parse(buffer.toString());
+    const nestedProp = getNestedObject(json, prop);
+    if (nestedProp) {
+      core.setOutput('prop', nestedProp);
+    } else {
+      core.setFailed('no value found :(');
+    }
+  } catch (error) {
+    core.setFailed(error.message);
   }
-  core.setFailed('my_input not specified!');
 }
 
 run();
