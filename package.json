@@ -5,7 +5,7 @@
   "description": "Simple GitHub Action to read a specified property from a JSON file.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run pack",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "pack": "ncc build"
