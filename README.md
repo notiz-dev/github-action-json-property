@@ -1,4 +1,7 @@
+
 # github-action-json-property
+
+![Banner image showing successfully executed GitHub Action](banner.png)
 
 Get a specified property of a json file.
 
