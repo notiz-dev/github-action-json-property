@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Simple GitHub Action to read a specified property from a JSON file.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write **/*.ts",
