@@ -15,13 +15,19 @@ jobs:
       run: |
         npm install
         npm run build
+    - name: get version
+      id: version
+      uses: ./
+      with: 
+        path: 'package.json'
+        prop_path: 'version'
+    - run: echo ${{steps.version.outputs.prop}}        
         
-    - name: get json property
+    - name: get nested json property
       id: get_json_property
       uses: ./
       with: 
         path: 'package.json'
         prop_path: 'scripts.format'
 
-    - name: log action output
-      run: echo ${{steps.get_json_property.outputs.prop}}     
+     - run: echo ${{steps.get_json_property.outputs.prop}}     
