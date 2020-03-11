@@ -18,3 +18,19 @@ Use the action inside your workflow yaml file like this:
 ...
 
 ```
+
+
+Get a nested property value with dot separated prop_path 
+
+```yaml
+...
+- name: get nested property
+    id: format_script
+    uses: notiz-dev/github-action-json-property@master
+    with: 
+        path: 'package.json'
+        prop_path: 'scripts.format'
+- run: echo ${{steps.format_script.outputs.prop}} 
+...
+
+```
