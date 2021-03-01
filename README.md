@@ -18,6 +18,7 @@ Use the action inside your workflow yaml file like this:
         path: 'package.json'
         prop_path: 'version'
 - run: echo ${{steps.version.outputs.prop}} 
+- run: echo ${{steps.version.outputs.propStr}} 
 ...
 
 ```
@@ -34,6 +35,7 @@ Get a nested property value with dot separated prop_path
         path: 'package.json'
         prop_path: 'scripts.format'
 - run: echo ${{steps.format_script.outputs.prop}} 
+- run: echo ${{steps.format_script.outputs.propStr}} 
 ...
 
 ```
