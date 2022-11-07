@@ -37,3 +37,18 @@ Get a nested property value with dot separated prop_path
 ...
 
 ```
+
+Get a property value as string 
+
+```yaml
+...
+- name: get nested property
+    id: format_script
+    uses: notiz-dev/github-action-json-property@release
+    with: 
+        path: 'package.json'
+        prop_path: 'scripts.format'
+- run: echo ${{steps.format_script.outputs.propStr}} 
+...
+
+```
