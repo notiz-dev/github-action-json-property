@@ -19,11 +19,16 @@ async function run() {
     const nestedProp = getNestedObject(json, prop);
     if (nestedProp) {
       core.setOutput('prop', nestedProp);
+      core.setOutput('propStr', JSON.stringify(nestedProp));
     } else {
       core.setFailed('no value found :(');
     }
-  } catch (error) {
-    core.setFailed(error.message);
+  } catch (err) {
+    if (err instanceof Error) {
+      core.setFailed(err.message);
+      return;
+    }
+    core.setFailed('unknown error');
   }
 }
 
