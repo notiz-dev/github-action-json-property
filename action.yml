@@ -7,7 +7,7 @@ inputs:
   prop_path:
     description: 'dot separated property key (e.g.: scripts.build)'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   color: "yellow"
