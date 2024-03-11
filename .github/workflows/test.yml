@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4.1.1
     - name: get version
       id: version
       uses: ./
@@ -27,4 +27,4 @@ jobs:
         prop_path: 'scripts.format'
 
     - run: echo ${{steps.get_json_property.outputs.prop}}     
-    - run: echo ${{steps.get_json_property.outputs.propStr}}     
+    - run: echo ${{steps.get_json_property.outputs.propStr}}  
